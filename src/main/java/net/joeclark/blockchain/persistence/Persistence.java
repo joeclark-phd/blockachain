@@ -17,6 +17,7 @@ import com.owlike.genson.Genson;
 
 import net.joeclark.blockchain.model.Block;
 import net.joeclark.blockchain.model.Chain;
+import net.joeclark.blockchain.model.GenesisBlock;
 import net.joeclark.blockchain.utils.SHA3Helper;
 
 /** Class to manage writing the blockchain to (and reading back from) disk storage. */
@@ -85,7 +86,7 @@ public class Persistence {
         List<Block> workingList = new ArrayList<>();
         // first find the genesis block
         for(Block b: unsortedBlocks) {
-            if(Arrays.equals(b.getBlockHeader().getPreviousBlockHash(), new byte[32])) {
+            if(Arrays.equals(b.getBlockHeader().getPreviousBlockHash(), GenesisBlock.ZERO_HASH)) {
                 workingList.add(b);
                 break;
             }
