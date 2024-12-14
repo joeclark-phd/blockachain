@@ -1,5 +1,6 @@
 package net.joeclark.blockchain.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Chain {
@@ -9,6 +10,12 @@ public class Chain {
     
     /** Default constructor is needed for serialization/deserialization. */
     public Chain() {}
+
+    public Chain(int networkId) {
+        this.networkId = networkId;
+        this.blocks = new ArrayList<>();
+        blocks.add(new GenesisBlock());
+    }
 
     public Chain(int networkId, List<Block> blocks) {
         this.networkId = networkId;

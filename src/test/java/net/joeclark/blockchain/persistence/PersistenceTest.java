@@ -17,7 +17,7 @@ public class PersistenceTest {
     public void testWrite() throws Exception {
 
         // create a blockchain
-        GenesisBlock firstBlock = new GenesisBlock();
+        Block firstBlock = new GenesisBlock();
         Block secondBlock = new Block(firstBlock.getBlockHash());
         Chain myChain = new Chain(42, List.of(firstBlock, secondBlock));
 
