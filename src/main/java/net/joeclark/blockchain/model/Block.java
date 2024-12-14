@@ -108,8 +108,8 @@ public class Block implements Serializable {
             return true;
         if (obj == null)
             return false;
-        if (getClass() != obj.getClass())
-            return false;
+        // if (getClass() != obj.getClass()) // one might be a subclass (GenesisBlock), but considered equal if data is equal
+        //     return false;
         Block other = (Block) obj;
         if (magicNumber != other.magicNumber)
             return false;

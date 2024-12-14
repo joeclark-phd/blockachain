@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import net.joeclark.blockchain.model.Block;
 import net.joeclark.blockchain.model.Chain;
+import net.joeclark.blockchain.model.GenesisBlock;
 
 public class PersistenceTest {
 
@@ -16,7 +17,7 @@ public class PersistenceTest {
     public void testWrite() throws Exception {
 
         // create a blockchain
-        Block firstBlock = new Block(new byte[32]);
+        GenesisBlock firstBlock = new GenesisBlock();
         Block secondBlock = new Block(firstBlock.getBlockHash());
         Chain myChain = new Chain(42, List.of(firstBlock, secondBlock));
 
