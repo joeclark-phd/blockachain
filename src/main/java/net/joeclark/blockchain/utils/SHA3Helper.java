@@ -30,7 +30,7 @@ public class SHA3Helper {
     }
 
     public static byte[] hash256( byte[] bytes ) {
-		SHA3.DigestSHA3 digestSHA3 = new SHA3.Digest256( );
-		return digestSHA3.digest( bytes );
-	}
+        SHA3.DigestSHA3 digestSHA3 = new SHA3.Digest256( );
+        return digestSHA3.digest( bytes );
+    }
 }

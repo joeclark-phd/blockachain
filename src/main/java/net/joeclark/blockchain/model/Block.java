@@ -9,11 +9,11 @@ import net.joeclark.blockchain.utils.SHA3Helper;
 
 public class Block implements Serializable {
 
-	private int magicNumber = 0x7B908F61; // arbitrary number to identify my unique protocol
-	private int blockSize;
-	private int transactionCount;
-	private List<Transaction> transactions;
-	private BlockHeader blockHeader; 
+    private int magicNumber = 0x7B908F61; // arbitrary number to identify my unique protocol
+    private int blockSize;
+    private int transactionCount;
+    private List<Transaction> transactions;
+    private BlockHeader blockHeader; 
 
     /** Default constructor is needed for serialization/deserialization. */
     public Block() {
@@ -35,12 +35,12 @@ public class Block implements Serializable {
 
     /** Concatenates all of the individual transaction hashes, and hashes the result. */
     private byte[] getTransactionHash( ) {
-		byte[] transactionsInBytes = new byte[0];
-		for (Transaction transaction : transactions){
-			transactionsInBytes = Arrays.concatenate( transactionsInBytes, transaction.getTxId() );
-		}
-		return SHA3Helper.hash256(transactionsInBytes);
-	}
+        byte[] transactionsInBytes = new byte[0];
+        for (Transaction transaction : transactions){
+            transactionsInBytes = Arrays.concatenate( transactionsInBytes, transaction.getTxId() );
+        }
+        return SHA3Helper.hash256(transactionsInBytes);
+    }
 
     /** 
      * The block's hash is really the block header's hash.  Since it contains a hash of the 
