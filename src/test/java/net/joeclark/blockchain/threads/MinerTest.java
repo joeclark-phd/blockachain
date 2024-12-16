@@ -33,6 +33,7 @@ public class MinerTest implements MinerListener {
         thread.start();
         while(DependencyInjector.getPendingTransactions().pendingTransactionsAvailable()) {
             Thread.sleep(1000);
+            // wait a sec, then check again if all transactions have been written
         }
         miner.stopMining();
     }
