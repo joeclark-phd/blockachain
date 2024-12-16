@@ -31,6 +31,11 @@ public class BlockHeader implements Serializable {
         this.nonce = 0;
     }
 
+    /** Used in mining.  We increment the nonce until the hash meets the difficulty requirement. */
+    public void incrementNonce() {
+        this.nonce++;
+    }
+
     public int getVersionNumber() {
         return versionNumber;
     }

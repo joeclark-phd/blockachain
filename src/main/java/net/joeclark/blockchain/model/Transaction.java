@@ -16,6 +16,7 @@ public class Transaction implements Serializable {
     private double transactionFeeBasePrice;
     private double transactionFeeLimit;
     private transient byte[] txId;
+    private transient byte[] blockId;
 
     /** Default constructor is needed for serialization/deserialization. */
     public Transaction() {}
@@ -137,6 +138,14 @@ public class Transaction implements Serializable {
         if (!Arrays.equals(txId, other.txId))
             return false;
         return true;
+    }
+
+    public byte[] getBlockId() {
+        return blockId;
+    }
+
+    public void setBlockId(byte[] blockId) {
+        this.blockId = blockId;
     }
 
     

@@ -36,4 +36,8 @@ public class PendingTransactions {
         pendingTransactions.add(transaction);
     }
 
+    public boolean pendingTransactionsAvailable() {
+        return (pendingTransactions != null && !pendingTransactions.isEmpty());
+    }
+
 }

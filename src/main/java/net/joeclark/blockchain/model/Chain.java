@@ -22,6 +22,11 @@ public class Chain {
         this.blocks = blocks;
     }
 
+    public void addBlock(Block block) {
+        // could do some error handling here to make sure hash matches last block
+        this.blocks.add(block);
+    }
+
     public int getNetworkId() {
         return networkId;
     }

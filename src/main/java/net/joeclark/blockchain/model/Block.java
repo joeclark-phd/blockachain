@@ -26,6 +26,14 @@ public class Block implements Serializable {
         this.blockHeader = new BlockHeader(System.currentTimeMillis(), previousBlockHash);
     }
 
+    public Block(byte[] previousBlockHash, List<Transaction> transactions) {
+        this.blockSize = 92; // 80 byte BlockHeader + 3 x 4-byte integers
+        this.transactions = transactions;
+        this.transactionCount = transactions.size();
+        this.blockHeader = new BlockHeader(System.currentTimeMillis(), previousBlockHash);
+        this.blockHeader.setTransactionListHash(getTransactionHash());
+    }
+
     public void addTransaction(Transaction transaction) {
         this.transactions.add(transaction);
         this.transactionCount++;
@@ -49,6 +57,11 @@ public class Block implements Serializable {
     public byte[] getBlockHash( ) {
 		return blockHeader.asHash( );
 	}
+
+    public void incrementNonce() {
+        this.blockHeader.incrementNonce();
+    }
+
 
     public int getMagicNumber() {
         return magicNumber;
